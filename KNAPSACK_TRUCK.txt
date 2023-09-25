@@ -1,0 +1,30 @@
+int maximumUnits(int** boxTypes, int boxTypesSize, int* boxTypesColSize, int truckSize){
+    int count=0,temp1,temp2,units=0,k=0,t,r;
+    while(k>0){
+    for(int i=0;i<boxTypesSize-1;i++){
+            if (boxTypes[i][1]<boxTypes[i+1][1]){
+                temp1=boxTypes[i+1][1];
+                temp2=boxTypes[i+1][0];
+                boxTypes[i+1][1]=boxTypes[i][1];
+                boxTypes[i+1][0]=boxTypes[i][0];
+                boxTypes[i][1]=temp1;
+                boxTypes[i][0]=temp2;
+            }
+    }
+    }
+    for(int i=0;i<boxTypesSize;i++){
+        if(units<=truckSize)
+        {   t=units;
+            units+=boxTypes[i][0];
+            if(units>truckSize){
+                r=truckSize-t;
+                count+=boxTypes[i][1]*r;
+            }
+            else
+                count+=boxTypes[i][1]*boxTypes[i][0];
+        }
+    }
+    return count;
+ 
+
+}
