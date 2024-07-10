@@ -10,7 +10,9 @@ for i in range(97,123):
 flag = True
 
 for i in string:
-    if (string.count(i)!=dic[i]):
+    if i==" ":
+        continue
+    elif (string.count(i)!=dic[i]):
         flag = False
         break
     else:
